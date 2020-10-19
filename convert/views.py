@@ -18,10 +18,6 @@ def first_page(request):
         return render(request, "font.html", {"img":img})
     return render(request,"font.html")
 
-# def delete_media(request):
-#     path_media=Pic.objects.all()
-#     path_media.Pics.delete()
-#     return redirect('font.html')
 
 def download(request):
     img_list=[]
@@ -42,7 +38,7 @@ def download(request):
             #if 'convert.pdf' in os.listdir(dir_path):
             #str(dir_path) + '\\convert'+str(count)+'.pdf'
             path=os.getcwd()
-            pic_list[0].save(path+'convert.pdf', save_all=True, append_images=pic_list[1:])
+            pic_list[0].save(path+'\\convert.pdf', save_all=True, append_images=pic_list[1:])
                 #count+=1
             #else:
                 #pic_list[0].save(str(dir_path)+'\\convert.pdf',save_all=True,append_images=pic_list[1:])
