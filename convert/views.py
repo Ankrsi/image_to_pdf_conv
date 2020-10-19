@@ -41,7 +41,7 @@ def download(request):
             #dir_path=path+'\\'+'Downloads'
             #if 'convert.pdf' in os.listdir(dir_path):
             #str(dir_path) + '\\convert'+str(count)+'.pdf'
-            path=os.cwd()
+            path=os.getcwd()
             pic_list[0].save(path+'convert.pdf', save_all=True, append_images=pic_list[1:])
                 #count+=1
             #else:
