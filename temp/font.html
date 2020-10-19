@@ -1,0 +1,66 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>image to pdf convert</title>
+</head>
+<h1 style="text-align:center;color:blue;">Convert Image To PDF</h1>
+<a href="" style="color:red;float:right;font-size:25px;">Refresh Page</a>
+<style>
+    body {
+    background-image:url('{% static "IMG/bg_img.jpg" %}');
+    background-size:100% 100%;
+    }
+    #main_form {
+       margin-left:auto;
+       margin-right:auto;
+       border:3px solid green;
+       padding:30px;
+       align:center;
+       background-color:#6495ED;
+    }
+    #label {
+      color:red;
+      text-align:center;
+      font-size:30px;
+    }
+    .file {
+      padding: 10px 620px ;
+    }
+    #button {
+      padding: 10px 620px;
+      border-radius: 8px;
+    }
+</style>
+<body>
+<div id="main_form">
+    <form method="POST" action="" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div id="label">
+            <label>Select Your Image</label>
+        </div>
+        <div class="file">
+            <input type="file" name="select_file" multiple accept="image/*"/><br><br>
+        </div>
+        <div id="button">
+            <button name="upload">Upload</button><br><br>
+        </div>
+    </form>
+    {% if img %}
+    <form method="POST" action="/download/">
+        {% csrf_token %}
+        <button name="download">Download</button>
+    </form>
+    {% endif %}
+    {% if msg %}
+    {{msg}}
+    {% endif%}
+</div>
+{% for image in img %}
+<img src="media/{{image.image.name}}" height="200" width="200">
+{% endfor %}
+{% for d in data %}
+{{d}}
+{% endfor %}
+</body>
+</html>
