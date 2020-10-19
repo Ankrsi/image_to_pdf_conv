@@ -48,7 +48,7 @@ def download(request):
                 #pic_list[0].save(str(dir_path)+'\\convert.pdf',save_all=True,append_images=pic_list[1:])
             img = Pic.objects.all()
             img.delete()
-            return render(request, "font.html",{'msg':'Download Completed , Check Your Download Folder'})
+            return render(request, "font.html",{'msg':'Download Completed , Check Your '+path+' Folder'})
         except:
             pic_list[0].save('convert.pdf', save_all=True, append_images=pic_list[1:])
             img = Pic.objects.all()
