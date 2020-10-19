@@ -36,14 +36,15 @@ def download(request):
             pic=pic.convert('RGB')
             pic_list.append(pic)
         try:
-            count=1
-            path=os.path.expanduser('~')
-            dir_path=path+'\\'+'Downloads'
-            if 'convert.pdf' in os.listdir(dir_path):
-                pic_list[0].save(str(dir_path) + '\\convert'+str(count)+'.pdf', save_all=True, append_images=pic_list[1:])
-                count+=1
-            else:
-                pic_list[0].save(str(dir_path)+'\\convert.pdf',save_all=True,append_images=pic_list[1:])
+            #count=1
+            #path=os.path.expanduser('~')
+            #dir_path=path+'\\'+'Downloads'
+            #if 'convert.pdf' in os.listdir(dir_path):
+            #str(dir_path) + '\\convert'+str(count)+'.pdf'
+            pic_list[0].save('convert.pdf', save_all=True, append_images=pic_list[1:])
+                #count+=1
+            #else:
+                #pic_list[0].save(str(dir_path)+'\\convert.pdf',save_all=True,append_images=pic_list[1:])
             img = Pic.objects.all()
             img.delete()
             return render(request, "font.html",{'msg':'Download Completed , Check Your Download Folder'})
