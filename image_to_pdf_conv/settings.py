@@ -25,7 +25,7 @@ SECRET_KEY = '=o6=g0#dir2p=f&)l^o(a^7+q3_3cwrcy65+gj!gbj=nuznpr9'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['ankrsi12.pythonanywhere.com']
+ALLOWED_HOSTS = ['Ankrsi12.pythonanywhere.com']
 
 
 # Application definition
