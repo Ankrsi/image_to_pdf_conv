@@ -27,7 +27,7 @@ def first_page(request):
     try:
         img = Pic.objects.all()
         img.delete()
-        os.remove('/home/Ankrsi12/image_to_pdf_conv/static/IMG/convert.pdf')
+        os.remove('./static/IMG/convert.pdf')
     except:
         pass
     return render(request,"font.html")
