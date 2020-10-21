@@ -1,4 +1,4 @@
-{% load static %}
+{% load staticfile %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,7 +8,7 @@
 <a href="" style="color:red;float:right;font-size:25px;">Refresh Page</a>
 <style>
     body {
-    background-image:url('{% static "IMG/bg_img.jpg" %}');
+    background-image:url('{% staticfile "IMG/bg_img.jpg" %}');
     background-size:100% 100%;
     }
     #main_form {
