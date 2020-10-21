@@ -46,21 +46,13 @@
             <button name="upload">Upload</button><br><br>
         </div>
     </form>
-    {% if img %}
-    <form method="POST" action="/download/">
-        {% csrf_token %}
-        <button name="download">Download</button>
-    </form>
-    {% endif %}
     {% if msg %}
     {{msg}}
+    <a download href="{% static 'IMG/convert.pdf' %}" style="font-size:25px">Download</a>
     {% endif%}
 </div>
 {% for image in img %}
 <img src="media/{{image.image.name}}" height="200" width="200">
-{% endfor %}
-{% for d in data %}
-{{d}}
 {% endfor %}
 </body>
 </html>
