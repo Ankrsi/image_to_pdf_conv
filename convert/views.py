@@ -22,8 +22,6 @@ def first_page(request):
             pic_list.append(rgb_img)
         pic_list[0].save('./static/IMG/convert.pdf', save_all=True,append_images=pic_list[1:])
         return render(request,"font.html",{"img":img,'msg':'click here to download '})
-    else:
-        return redirect('first_page')
     try:
         img = Pic.objects.all()
         img.delete()
