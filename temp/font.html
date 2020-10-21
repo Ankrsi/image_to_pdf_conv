@@ -7,10 +7,6 @@
 <h1 style="text-align:center;color:blue;">Convert Image To PDF</h1>
 <a href="" style="color:red;float:right;font-size:25px;">Refresh Page</a>
 <style>
-    body {
-    background-image:url('{% static "IMG/bg_img.jpg" %}');
-    background-size:100% 100%;
-    }
     #main_form {
        margin-left:auto;
        margin-right:auto;
@@ -32,7 +28,7 @@
       border-radius: 8px;
     }
 </style>
-<body>
+<body style="background-image:url('{% static "IMG/bg_img.jpg" %}');background-size:100% 100%;">
 <div id="main_form">
     <form method="POST" action="" enctype="multipart/form-data">
         {% csrf_token %}
