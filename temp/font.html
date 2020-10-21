@@ -48,7 +48,7 @@
     </form>
     {% if msg %}
     {{msg}}
-    <a download href="/app/static/IMG/convert.pdf" style="font-size:25px">Download</a>
+    <a download href="{% static 'IMG/convert.pdf' %}" style="font-size:25px">Download</a>
     {% endif%}
 </div>
 {% for image in img %}
