@@ -1,4 +1,4 @@
-{% load static %}
+{% load staticfiles %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -48,7 +48,7 @@
     </form>
     {% if msg %}
     {{msg}}
-    <a download href="{% static 'IMG/convert.pdf' %}" style="font-size:25px">Download</a>
+    <a download href="{% staticfiles 'IMG/convert.pdf' %}" style="font-size:25px">Download</a>
     {% endif%}
 </div>
 {% for image in img %}
