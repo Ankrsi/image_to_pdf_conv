@@ -5,49 +5,29 @@ from .models import *
 from PIL import Image
 import os
 
-# def page(request):
-#     return HttpResponse('<h1>anish</h1>')
+img_lists=[]
 def first_page(request):
+    pic_list=[]
     if request.method == 'POST':
         image=request.FILES.getlist("select_file")
         for f in image:
+            img_lists.append(f)
             imageinfo=Pic(name="img",image=f)
             imageinfo.save()
         img = Pic.objects.all()
         #pic=Pic.objects.get()orfilter()
-        return render(request, "font.html", {"img":img})
-    return render(request,"font.html")
-
-
-def download(request):
-    img_list=[]
-    pic_list=[]
-    if request.method == 'POST':
-        for root, dir, files in os.walk('media/image'):
-            for name in files:
-                f=str(os.path.join(str(root),str(name)))
-                img_list.append(f)
-        for im in img_list:
-            pic=Image.open(im)
-            pic=pic.convert('RGB')
-            pic_list.append(pic)
-        try:
-            count=1
-            path=os.path.expanduser('~')
-            dir_path=path+'\\'+'Downloads'
-            if 'convert.pdf' in os.listdir(dir_path):
-                pic_list[0].save("str(dir_path)+'\\convert'+str(count)+'.pdf'", save_all=True, append_images=pic_list[1:])
-                count+=1
-            else:
-                pic_list[0].save(str(dir_path)+'\\convert.pdf',save_all=True,append_images=pic_list[1:])
-            img = Pic.objects.all()
-            img.delete()
-            return render(request, "font.html",{'msg':'Download Completed , Check Your '+path+' Folder'})
-        except:
-            pic_list[0].save('convert.pdf', save_all=True, append_images=pic_list[1:])
-            img = Pic.objects.all()
-            img.delete()
-
+        for l in img_lists:
+            lists=Image.open(l)
+            rgb_img=lists.convert('RGB')
+            pic_list.append(rgb_img)
+        pic_list[0].save('./static/IMG/convert.pdf', save_all=True,append_images=pic_list[1:])
+        return render(request,"font.html",{"img":img,'msg':'click here to download '})
     else:
         return redirect('first_page')
+    try:
+        img = Pic.objects.all()
+        img.delete()
+        os.remove('/home/Ankrsi12/image_to_pdf_conv/static/IMG/convert.pdf')
+    except:
+        pass
     return render(request,"font.html")
