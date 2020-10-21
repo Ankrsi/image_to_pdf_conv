@@ -1,4 +1,4 @@
-{% load staticfile %}
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,7 +8,7 @@
 <a href="" style="color:red;float:right;font-size:25px;">Refresh Page</a>
 <style>
     body {
-    background-image:url('{% staticfile "IMG/bg_img.jpg" %}');
+    background-image:url('{% static "IMG/bg_img.jpg" %}');
     background-size:100% 100%;
     }
     #main_form {
@@ -48,7 +48,7 @@
     </form>
     {% if msg %}
     {{msg}}
-    <a download href="/app/staticfiles/IMG/convert.pdf" style="font-size:25px">Download</a>
+    <a download href="/app/static/IMG/convert.pdf" style="font-size:25px">Download</a>
     {% endif%}
 </div>
 {% for image in img %}
