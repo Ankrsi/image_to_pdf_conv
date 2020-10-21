@@ -20,12 +20,12 @@ def first_page(request):
             lists=Image.open(l)
             rgb_img=lists.convert('RGB')
             pic_list.append(rgb_img)
-        pic_list[0].save('/app/static/IMG/convert.pdf', save_all=True,append_images=pic_list[1:])
+        pic_list[0].save('/app/staticfiles/IMG/convert.pdf', save_all=True,append_images=pic_list[1:])
         return render(request,"font.html",{"img":img,'msg':'click here to download '})
     try:
         img = Pic.objects.all()
         img.delete()
-        os.remove('/app/static/IMG/convert.pdf')
+        os.remove('/app/staticfiles/IMG/convert.pdf')
     except:
         pass
     return render(request,"font.html")
